@@ -186,7 +186,7 @@ class CoordinateVG {
             self.degrees = 0
         }
     }
-    //поменять местами
+  
     func getPossition() -> String {
         var position: String
         switch (direction, degrees) {
