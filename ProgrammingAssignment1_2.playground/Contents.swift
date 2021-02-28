@@ -226,8 +226,8 @@ class CoordinateVG {
         }
         return CoordinateVG(direction: direction,
                             degrees: Int((degrees + newCoord.degrees) / 2),
-                            minutes: UInt((getMinutes() + Int(newCoord.getMinutes())) / 2),
-                            seconds: UInt((getSeconds() + Int(newCoord.getSeconds())) / 2))
+                            minutes: UInt(abs((getMinutes() + Int(newCoord.getMinutes())) / 2)),
+                            seconds: UInt(abs((getSeconds() + Int(newCoord.getSeconds())) / 2)))
     }
     
     class func middleCoordTwo(coord1: CoordinateVG, coord2: CoordinateVG) -> CoordinateVG? {
@@ -236,8 +236,8 @@ class CoordinateVG {
         }
         return CoordinateVG(direction: coord1.direction,
                             degrees: Int((coord1.degrees + coord2.degrees) / 2),
-                            minutes: UInt((coord1.getMinutes() + Int(coord2.getMinutes())) / 2),
-                            seconds: UInt((coord1.getSeconds() + Int(coord2.getSeconds())) / 2))
+                            minutes: UInt(abs((coord1.getMinutes() + Int(coord2.getMinutes())) / 2)),
+                            seconds: UInt(abs((coord1.getSeconds() + Int(coord2.getSeconds())) / 2)))
     }
 }
 
@@ -247,10 +247,10 @@ class CoordinateVG {
 let coordLongDefault = CoordinateVG()
 let coordLatiDefault = CoordinateVG()
 
-let coordLongBegin = CoordinateVG(direction: .longtitude, degrees: 30, minutes: 29, seconds: 52)
+let coordLongBegin = CoordinateVG(direction: .longtitude, degrees: 12, minutes: 0, seconds: 0)
 let coordLatiBegin = CoordinateVG(direction: .latitude, degrees: 50, minutes: 29, seconds: 28)
 
-let coordLongEnd = CoordinateVG(direction: .longtitude, degrees: 30, minutes: 29, seconds: 56)
+let coordLongEnd = CoordinateVG(direction: .longtitude, degrees: -12, minutes: 39, seconds: 56)
 let coordLatiEnd = CoordinateVG(direction: .latitude, degrees: 50, minutes: 31, seconds: 41)
 
 
