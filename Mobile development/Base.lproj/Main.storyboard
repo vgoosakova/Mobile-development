@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xA6-ha-N0w">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -8,21 +8,92 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Drawing-->
         <scene sceneID="OHq-Cz-20E">
             <objects>
-                <viewController id="iy8-YU-vfx" sceneMemberID="viewController">
+                <viewController id="iy8-YU-vfx" customClass="Lab2ViewController" customModule="Mobile_development" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m7H-o7-5Bd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MdD-9c-RKo">
+                                <rect key="frame" x="0.0" y="206" width="414" height="445"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8m6-2y-4IE">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="32"/>
+                                        <segments>
+                                            <segment title="Graphic"/>
+                                            <segment title="Chart"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="segmentController:" destination="iy8-YU-vfx" eventType="valueChanged" id="iJH-9j-wzv"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9ZE-bY-F9A" customClass="DrawView" customModule="Mobile_development" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="31" width="414" height="414"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="9ZE-bY-F9A" secondAttribute="height" multiplier="1:1" id="35Z-LU-apI"/>
+                                            <constraint firstAttribute="width" constant="313" id="9Sf-2q-OYY"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="9Sf-2q-OYY"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=compact">
+                                            <mask key="constraints">
+                                                <exclude reference="35Z-LU-apI"/>
+                                                <include reference="9Sf-2q-OYY"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="4LO-Qh-fRq"/>
+                                    <constraint firstItem="9ZE-bY-F9A" firstAttribute="width" secondItem="MdD-9c-RKo" secondAttribute="width" id="7oc-uN-9nj"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="4LO-Qh-fRq"/>
+                                    </mask>
+                                </variation>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="a64-1O-DTA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MdD-9c-RKo" firstAttribute="leading" secondItem="a64-1O-DTA" secondAttribute="leading" id="D6w-d3-8Ip"/>
+                            <constraint firstItem="MdD-9c-RKo" firstAttribute="centerY" secondItem="a64-1O-DTA" secondAttribute="centerY" id="Dx0-ML-EIB"/>
+                            <constraint firstItem="MdD-9c-RKo" firstAttribute="top" secondItem="a64-1O-DTA" secondAttribute="top" id="EdO-u0-98l"/>
+                            <constraint firstItem="MdD-9c-RKo" firstAttribute="centerX" secondItem="a64-1O-DTA" secondAttribute="centerX" id="L9s-dn-1EO"/>
+                            <constraint firstItem="a64-1O-DTA" firstAttribute="bottom" secondItem="MdD-9c-RKo" secondAttribute="bottom" id="RoR-a1-NwK"/>
+                            <constraint firstItem="a64-1O-DTA" firstAttribute="trailing" secondItem="MdD-9c-RKo" secondAttribute="trailing" id="zLb-sx-p51"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="RoR-a1-NwK"/>
+                                <exclude reference="EdO-u0-98l"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <include reference="RoR-a1-NwK"/>
+                                <exclude reference="zLb-sx-p51"/>
+                                <exclude reference="D6w-d3-8Ip"/>
+                                <exclude reference="Dx0-ML-EIB"/>
+                                <include reference="EdO-u0-98l"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="qyl-P0-AiI"/>
+                    <tabBarItem key="tabBarItem" title="Drawing" image="scribble.variable" catalog="system" id="qyl-P0-AiI"/>
+                    <connections>
+                        <outlet property="DrawView" destination="9ZE-bY-F9A" id="Uwt-LV-yXg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kWQ-jV-nuc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="744" y="4"/>
+            <point key="canvasLocation" x="743" y="65"/>
         </scene>
         <!--Student-->
         <scene sceneID="nTe-MC-xsS">
@@ -33,7 +104,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4JR-jU-L2z">
-                                <rect key="frame" x="137.5" y="417.5" width="139" height="61"/>
+                                <rect key="frame" x="137.66666666666666" y="417.66666666666669" width="138.99999999999997" height="61"/>
                                 <string key="text">Гусакова Вікторія
 Група ІВ-82
 ЗК ІВ-8207</string>
@@ -76,6 +147,7 @@
     </scenes>
     <resources>
         <image name="person.circle" catalog="system" width="128" height="121"/>
+        <image name="scribble.variable" catalog="system" width="128" height="118"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -13,6 +13,8 @@
 		714BF98625D1595C005C0FC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 714BF98425D1595C005C0FC9 /* Main.storyboard */; };
 		714BF98825D1595D005C0FC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 714BF98725D1595D005C0FC9 /* Assets.xcassets */; };
 		714BF98B25D1595D005C0FC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 714BF98925D1595D005C0FC9 /* LaunchScreen.storyboard */; };
+		719CEEDC25F2A9ED00C06FFF /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719CEEDB25F2A9ED00C06FFF /* DrawView.swift */; };
+		71FB355725E716C3007E9DA6 /* Lab2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FB355625E716C3007E9DA6 /* Lab2ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		714BF98725D1595D005C0FC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		714BF98A25D1595D005C0FC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		714BF98C25D1595D005C0FC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		719CEEDB25F2A9ED00C06FFF /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		71FB355625E716C3007E9DA6 /* Lab2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab2ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +63,12 @@
 				714BF97E25D1595C005C0FC9 /* AppDelegate.swift */,
 				714BF98025D1595C005C0FC9 /* SceneDelegate.swift */,
 				714BF98225D1595C005C0FC9 /* ViewController.swift */,
+				71FB355625E716C3007E9DA6 /* Lab2ViewController.swift */,
 				714BF98425D1595C005C0FC9 /* Main.storyboard */,
 				714BF98725D1595D005C0FC9 /* Assets.xcassets */,
 				714BF98925D1595D005C0FC9 /* LaunchScreen.storyboard */,
 				714BF98C25D1595D005C0FC9 /* Info.plist */,
+				719CEEDB25F2A9ED00C06FFF /* DrawView.swift */,
 			);
 			path = "Mobile development";
 			sourceTree = "<group>";
@@ -138,8 +144,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				714BF98325D1595C005C0FC9 /* ViewController.swift in Sources */,
+				719CEEDC25F2A9ED00C06FFF /* DrawView.swift in Sources */,
 				714BF97F25D1595C005C0FC9 /* AppDelegate.swift in Sources */,
 				714BF98125D1595C005C0FC9 /* SceneDelegate.swift in Sources */,
+				71FB355725E716C3007E9DA6 /* Lab2ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
