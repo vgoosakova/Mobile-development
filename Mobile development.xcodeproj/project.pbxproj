@@ -14,6 +14,11 @@
 		714BF98825D1595D005C0FC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 714BF98725D1595D005C0FC9 /* Assets.xcassets */; };
 		714BF98B25D1595D005C0FC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 714BF98925D1595D005C0FC9 /* LaunchScreen.storyboard */; };
 		719CEEDC25F2A9ED00C06FFF /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719CEEDB25F2A9ED00C06FFF /* DrawView.swift */; };
+		71BBC5D825FD2C2200120A19 /* BooksList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 71BBC5D725FD2C2200120A19 /* BooksList.txt */; };
+		71BBC5F525FE55A800120A19 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BBC5F325FE55A800120A19 /* BookTableViewCell.swift */; };
+		71BBC5F625FE55A800120A19 /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BBC5F425FE55A800120A19 /* BookTableViewCell.xib */; };
+		71E5B7F925FD2A5B00E81C8B /* Lab3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5B7F825FD2A5B00E81C8B /* Lab3ViewController.swift */; };
+		71E5B7FD25FD2AFA00E81C8B /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E5B7FC25FD2AFA00E81C8B /* Book.swift */; };
 		71FB355725E716C3007E9DA6 /* Lab2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FB355625E716C3007E9DA6 /* Lab2ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +32,11 @@
 		714BF98A25D1595D005C0FC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		714BF98C25D1595D005C0FC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		719CEEDB25F2A9ED00C06FFF /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		71BBC5D725FD2C2200120A19 /* BooksList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BooksList.txt; sourceTree = "<group>"; };
+		71BBC5F325FE55A800120A19 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		71BBC5F425FE55A800120A19 /* BookTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
+		71E5B7F825FD2A5B00E81C8B /* Lab3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab3ViewController.swift; sourceTree = "<group>"; };
+		71E5B7FC25FD2AFA00E81C8B /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		71FB355625E716C3007E9DA6 /* Lab2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab2ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,17 +70,54 @@
 		714BF97D25D1595C005C0FC9 /* Mobile development */ = {
 			isa = PBXGroup;
 			children = (
-				714BF97E25D1595C005C0FC9 /* AppDelegate.swift */,
-				714BF98025D1595C005C0FC9 /* SceneDelegate.swift */,
-				714BF98225D1595C005C0FC9 /* ViewController.swift */,
-				71FB355625E716C3007E9DA6 /* Lab2ViewController.swift */,
+				71BBC5F125FE553800120A19 /* Views */,
+				71BBC5D525FD2C1200120A19 /* Books */,
+				71E5B7F725FD297B00E81C8B /* ViewControllers */,
 				714BF98425D1595C005C0FC9 /* Main.storyboard */,
-				714BF98725D1595D005C0FC9 /* Assets.xcassets */,
+				714BF98025D1595C005C0FC9 /* SceneDelegate.swift */,
+				714BF97E25D1595C005C0FC9 /* AppDelegate.swift */,
 				714BF98925D1595D005C0FC9 /* LaunchScreen.storyboard */,
 				714BF98C25D1595D005C0FC9 /* Info.plist */,
-				719CEEDB25F2A9ED00C06FFF /* DrawView.swift */,
+				714BF98725D1595D005C0FC9 /* Assets.xcassets */,
 			);
 			path = "Mobile development";
+			sourceTree = "<group>";
+		};
+		71BBC5D525FD2C1200120A19 /* Books */ = {
+			isa = PBXGroup;
+			children = (
+				71BBC5D725FD2C2200120A19 /* BooksList.txt */,
+			);
+			path = Books;
+			sourceTree = "<group>";
+		};
+		71BBC5F125FE553800120A19 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				71BBC5F225FE556900120A19 /* BookTableViewCell */,
+				719CEEDB25F2A9ED00C06FFF /* DrawView.swift */,
+				71E5B7FC25FD2AFA00E81C8B /* Book.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		71BBC5F225FE556900120A19 /* BookTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				71BBC5F325FE55A800120A19 /* BookTableViewCell.swift */,
+				71BBC5F425FE55A800120A19 /* BookTableViewCell.xib */,
+			);
+			path = BookTableViewCell;
+			sourceTree = "<group>";
+		};
+		71E5B7F725FD297B00E81C8B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				714BF98225D1595C005C0FC9 /* ViewController.swift */,
+				71FB355625E716C3007E9DA6 /* Lab2ViewController.swift */,
+				71E5B7F825FD2A5B00E81C8B /* Lab3ViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +178,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				714BF98B25D1595D005C0FC9 /* LaunchScreen.storyboard in Resources */,
+				71BBC5D825FD2C2200120A19 /* BooksList.txt in Resources */,
+				71BBC5F625FE55A800120A19 /* BookTableViewCell.xib in Resources */,
 				714BF98825D1595D005C0FC9 /* Assets.xcassets in Resources */,
 				714BF98625D1595C005C0FC9 /* Main.storyboard in Resources */,
 			);
@@ -143,8 +192,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71BBC5F525FE55A800120A19 /* BookTableViewCell.swift in Sources */,
 				714BF98325D1595C005C0FC9 /* ViewController.swift in Sources */,
 				719CEEDC25F2A9ED00C06FFF /* DrawView.swift in Sources */,
+				71E5B7FD25FD2AFA00E81C8B /* Book.swift in Sources */,
+				71E5B7F925FD2A5B00E81C8B /* Lab3ViewController.swift in Sources */,
 				714BF97F25D1595C005C0FC9 /* AppDelegate.swift in Sources */,
 				714BF98125D1595C005C0FC9 /* SceneDelegate.swift in Sources */,
 				71FB355725E716C3007E9DA6 /* Lab2ViewController.swift in Sources */,
