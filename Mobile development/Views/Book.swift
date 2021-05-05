@@ -14,8 +14,8 @@ struct Books: Codable {
 
 // MARK: - Book
 struct Book: Codable {
-    let title, subtitle, isbn13, price: String
-    let image: String
+    let title, subtitle, isbn13, price, image: String
+    let authors, publisher, pages, year, rating, desc: String?
     
     var bookImage: UIImage {
         guard !image.isEmpty else {
