@@ -25,6 +25,9 @@
 		714BF98625D1595C005C0FC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 714BF98425D1595C005C0FC9 /* Main.storyboard */; };
 		714BF98825D1595D005C0FC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 714BF98725D1595D005C0FC9 /* Assets.xcassets */; };
 		714BF98B25D1595D005C0FC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 714BF98925D1595D005C0FC9 /* LaunchScreen.storyboard */; };
+		7172481726473367001EFA0C /* Lab5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172481626473367001EFA0C /* Lab5ViewController.swift */; };
+		7172481A26473509001EFA0C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172481926473509001EFA0C /* ImagePicker.swift */; };
+		7172481D264737B4001EFA0C /* PicturesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7172481C264737B4001EFA0C /* PicturesCollectionViewCell.swift */; };
 		719CEEDC25F2A9ED00C06FFF /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719CEEDB25F2A9ED00C06FFF /* DrawView.swift */; };
 		71BBC5D825FD2C2200120A19 /* BooksList.txt in Resources */ = {isa = PBXBuildFile; fileRef = 71BBC5D725FD2C2200120A19 /* BooksList.txt */; };
 		71BBC5F525FE55A800120A19 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BBC5F325FE55A800120A19 /* BookTableViewCell.swift */; };
@@ -55,6 +58,9 @@
 		714BF98725D1595D005C0FC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		714BF98A25D1595D005C0FC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		714BF98C25D1595D005C0FC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7172481626473367001EFA0C /* Lab5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lab5ViewController.swift; sourceTree = "<group>"; };
+		7172481926473509001EFA0C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		7172481C264737B4001EFA0C /* PicturesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesCollectionViewCell.swift; sourceTree = "<group>"; };
 		719CEEDB25F2A9ED00C06FFF /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		71BBC5D725FD2C2200120A19 /* BooksList.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BooksList.txt; sourceTree = "<group>"; };
 		71BBC5F325FE55A800120A19 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
@@ -98,6 +104,7 @@
 				71BBC5D525FD2C1200120A19 /* Books */,
 				71E5B7F725FD297B00E81C8B /* ViewControllers */,
 				714BF98425D1595C005C0FC9 /* Main.storyboard */,
+				7172481C264737B4001EFA0C /* PicturesCollectionViewCell.swift */,
 				714BF98025D1595C005C0FC9 /* SceneDelegate.swift */,
 				714BF97E25D1595C005C0FC9 /* AppDelegate.swift */,
 				714BF98925D1595D005C0FC9 /* LaunchScreen.storyboard */,
@@ -152,6 +159,8 @@
 				71FB355625E716C3007E9DA6 /* Lab2ViewController.swift */,
 				71E5B7F825FD2A5B00E81C8B /* Lab3ViewController.swift */,
 				7115B5EC26432BCB00BB30C1 /* Lab4ViewController.swift */,
+				7172481626473367001EFA0C /* Lab5ViewController.swift */,
+				7172481926473509001EFA0C /* ImagePicker.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -246,8 +255,11 @@
 				71E5B7FD25FD2AFA00E81C8B /* Book.swift in Sources */,
 				71E5B7F925FD2A5B00E81C8B /* Lab3ViewController.swift in Sources */,
 				714BF97F25D1595C005C0FC9 /* AppDelegate.swift in Sources */,
+				7172481D264737B4001EFA0C /* PicturesCollectionViewCell.swift in Sources */,
 				714BF98125D1595C005C0FC9 /* SceneDelegate.swift in Sources */,
+				7172481A26473509001EFA0C /* ImagePicker.swift in Sources */,
 				71FB355725E716C3007E9DA6 /* Lab2ViewController.swift in Sources */,
+				7172481726473367001EFA0C /* Lab5ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
