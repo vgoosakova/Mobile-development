@@ -42,7 +42,6 @@ class Lab5ViewController: UIViewController {
         let layout = UICollectionViewCompositionalLayout {
             (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             
-            
             let bigItem = NSCollectionLayoutItem(
                 layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalHeight(1.0),
                                                    heightDimension: .fractionalWidth(3/5)))
@@ -75,8 +74,10 @@ class Lab5ViewController: UIViewController {
 extension Lab5ViewController: ImagePickerDelegate {
     
     func didSelect(image: UIImage?) {
-        pictures.append(image!)
-        collectionView.reloadData()
+        if let image = image {
+            pictures.append(image)
+            collectionView.reloadData()
+        }
     }
 }
 
