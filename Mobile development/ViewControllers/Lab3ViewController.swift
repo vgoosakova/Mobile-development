@@ -9,22 +9,106 @@ import UIKit
 
 class Lab3ViewController: UIViewController {
     
+    @IBOutlet weak var indicatorActivity: UIActivityIndicatorView!
     @IBOutlet weak var placeholderLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var books: [Book] = []
-    var searchedBooks: [Book] = []
     var searchController: UISearchController!
-    var isSearching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSearch()
         placeholderLabel.isHidden = true
-        books = getBooks()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "BookTableViewCell", bundle: Bundle.main), forCellReuseIdentifier: "BookTableViewCell")
         tableView.reloadData()
+        indicatorActivity.hidesWhenStopped = true
+        indicatorActivity.layer.cornerRadius = 5
+    }
+    
+    func getBooks(with name: String) {
+        
+        guard name.count >= 3 else {
+            books = []
+            placeholderLabel.isHidden = false
+            tableView.reloadData()
+            return
+        }
+        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api.itbook.store"
+        urlComponents.path = "/1.0/search/\(name)"
+        
+        guard let url = urlComponents.url else {
+            return
+        }
+        
+        indicatorActivity.startAnimating()
+        
+        URLSession(configuration: .default).dataTask(with: URLRequest(url: url)) { [weak self] data, response, error in
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            if let data = data {
+                do {
+                    let serverResponse = try JSONDecoder().decode(Books.self, from: data)
+                    
+                    DispatchQueue.main.async {
+                        self?.indicatorActivity.stopAnimating()
+                        self?.books = serverResponse.books
+                        self?.placeholderLabel.isHidden = !serverResponse.books.isEmpty
+                        self?.tableView.reloadData()
+                    }
+                    
+                } catch let error {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        .resume()
+    }
+    
+    func getFullBook(with id: String) {
+        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api.itbook.store"
+        urlComponents.path = "/1.0/books/\(id)"
+        
+        guard let url = urlComponents.url else {
+            return
+        }
+        
+        indicatorActivity.startAnimating()
+        
+        URLSession(configuration: .default).dataTask(with: URLRequest(url: url)) { [weak self] data, response, error in
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            
+            if let data = data {
+                do {
+                    let serverResponse = try JSONDecoder().decode(Book.self, from: data)
+                    
+                    DispatchQueue.main.async {
+                        self?.indicatorActivity.stopAnimating()
+                        let controller = Lab4ViewController.create(book: serverResponse)
+                        self?.navigationController?.pushViewController(controller, animated: true)
+                    }
+                    
+                } catch let error {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        .resume()
     }
     
     @IBAction func addAction(_ sender: Any) {
@@ -90,81 +174,29 @@ class Lab3ViewController: UIViewController {
         navigationItem.searchController = searchController
     }
     
-    func getBooks() -> [Book] {
-        
-        do {
-            if let path = Bundle.main.path(forResource: "BooksList", ofType: "txt"),
-               let jsonData = try String(contentsOfFile: path, encoding: String.Encoding.utf8).data(using: .utf8) {
-                
-                let decodedData = try JSONDecoder().decode(Books.self, from: jsonData)
-                return decodedData.books
-            }
-        } catch {
-            print("Error: ", error.localizedDescription)
-        }
-        
-        return []
-    }
-    
-    func getBook(with id: String) -> Book? {
-        
-        guard !id.isEmpty else {
-            return nil
-        }
-        
-        do {
-            if let path = Bundle.main.path(forResource: id, ofType: "txt"),
-               let jsonData = try String(contentsOfFile: path, encoding: String.Encoding.utf8).data(using: .utf8) {
-                
-                let decodedData = try JSONDecoder().decode(Book.self, from: jsonData)
-                return decodedData
-            }
-        } catch let error {
-            print(error.localizedDescription)
-        }
-        return nil
-    }
 }
 
 extension Lab3ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isSearching ? searchedBooks.count : books.count
+        return books.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let selectedBookID = isSearching ? searchedBooks[indexPath.row].isbn13 : books[indexPath.row].isbn13
         
-        if let fullBook = getBook(with: selectedBookID) {
-            
-            let controller = Lab4ViewController.create(book: fullBook)
-            navigationController?.pushViewController(controller, animated: true)
-        }
+        let selectedBookID = books[indexPath.row].isbn13
+        
+        getFullBook(with: selectedBookID)
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
-        if editingStyle == .delete {
-            if isSearching {
-                let bookToDelete = searchedBooks.remove(at: indexPath.row)
-                books.removeAll { $0.isbn13 == bookToDelete.isbn13 }
-            } else {
-                books.remove(at: indexPath.row)
-            }
-            
-            placeholderLabel.isHidden = !books.isEmpty
-            
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookTableViewCell", for: indexPath) as? BookTableViewCell else {
             return UITableViewCell()
         }
         
-        let book = isSearching ? searchedBooks[indexPath.row] : books[indexPath.row]
+        let book = books[indexPath.row]
         cell.setUp(book: book)
         
         return cell
@@ -176,16 +208,12 @@ extension Lab3ViewController: UISearchResultsUpdating {
         
         guard let enteredText = searchController.searchBar.text?.lowercased(),
               !enteredText.isEmpty else {
-            isSearching = false
             placeholderLabel.isHidden = !books.isEmpty
             tableView.reloadData()
             return
         }
         
-        searchedBooks = books.filter { $0.title.lowercased().contains(enteredText) }
-        placeholderLabel.isHidden = !searchedBooks.isEmpty
-        isSearching = true
-        tableView.reloadData()
+        getBooks(with: enteredText)
     }
 }
 
@@ -193,8 +221,8 @@ extension Lab3ViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
-        isSearching = false
-        placeholderLabel.isHidden = true
+        books = []
+        placeholderLabel.isHidden = false
         tableView.reloadData()
     }
 }

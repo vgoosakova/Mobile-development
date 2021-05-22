@@ -17,10 +17,8 @@ struct Book: Codable {
     let title, subtitle, isbn13, price, image: String
     let authors, publisher, pages, year, rating, desc: String?
     
-    var bookImage: UIImage {
-        guard !image.isEmpty else {
-            return UIImage(systemName: "book")!
-        }
-        return UIImage(named: image) ?? UIImage(systemName: "book")!
+    var bookPlaceholderImage: UIImage {
+        
+        return UIImage(systemName: "book")!
     }
 }

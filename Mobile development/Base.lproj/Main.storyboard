@@ -145,26 +145,38 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="QrZ-Ku-FcK">
+                                <rect key="frame" x="182" y="425.66666666666669" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="F8b-C7-3dB"/>
+                                    <constraint firstAttribute="height" constant="50" id="ai2-y2-Ulg"/>
+                                </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pdT-qF-CX6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="2f2-9J-CBu" firstAttribute="centerY" secondItem="pdT-qF-CX6" secondAttribute="centerY" id="7Yt-Pd-W7V"/>
+                            <constraint firstItem="QrZ-Ku-FcK" firstAttribute="centerY" secondItem="pdT-qF-CX6" secondAttribute="centerY" id="Auu-ZK-LY8"/>
                             <constraint firstItem="2f2-9J-CBu" firstAttribute="centerX" secondItem="pdT-qF-CX6" secondAttribute="centerX" id="aTE-a5-ZtJ"/>
                             <constraint firstItem="pdT-qF-CX6" firstAttribute="bottom" secondItem="br8-Zg-ef3" secondAttribute="bottom" id="fgJ-Nt-4Fm"/>
+                            <constraint firstItem="QrZ-Ku-FcK" firstAttribute="centerX" secondItem="pdT-qF-CX6" secondAttribute="centerX" id="j3g-cb-L1S"/>
                             <constraint firstItem="pdT-qF-CX6" firstAttribute="trailing" secondItem="br8-Zg-ef3" secondAttribute="trailing" id="ldj-gU-a7X"/>
                             <constraint firstItem="br8-Zg-ef3" firstAttribute="leading" secondItem="pdT-qF-CX6" secondAttribute="leading" id="lmq-vY-7Am"/>
                             <constraint firstItem="br8-Zg-ef3" firstAttribute="top" secondItem="pdT-qF-CX6" secondAttribute="top" id="xZM-B3-5DR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="List of books" id="NjS-jk-fTb">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="jEn-dv-EeI">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="plain" systemItem="add" id="jEn-dv-EeI">
                             <connections>
                                 <action selector="addAction:" destination="QfV-y4-6eS" id="2AO-gG-pUU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="indicatorActivity" destination="QrZ-Ku-FcK" id="HCW-xW-png"/>
                         <outlet property="placeholderLabel" destination="2f2-9J-CBu" id="BqY-Hx-Zro"/>
                         <outlet property="tableView" destination="br8-Zg-ef3" id="JHe-4m-5AZ"/>
                         <segue destination="U1m-Nx-KcV" kind="show" id="0Uz-Jv-30H"/>
@@ -345,6 +357,15 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="FfC-VY-6FB">
+                                <rect key="frame" x="182" y="425.66666666666669" width="50" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="buN-LX-728"/>
+                                    <constraint firstAttribute="height" constant="50" id="rzF-If-zYd"/>
+                                </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BEZ-9K-hBt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -353,18 +374,14 @@
                             <constraint firstItem="qzg-o5-dCz" firstAttribute="top" secondItem="BEZ-9K-hBt" secondAttribute="top" id="NCp-Gg-jmw"/>
                             <constraint firstItem="BEZ-9K-hBt" firstAttribute="trailing" secondItem="qzg-o5-dCz" secondAttribute="trailing" id="TKz-9c-UrZ"/>
                             <constraint firstItem="BEZ-9K-hBt" firstAttribute="bottom" secondItem="qzg-o5-dCz" secondAttribute="bottom" id="lNu-TM-0mA"/>
+                            <constraint firstItem="FfC-VY-6FB" firstAttribute="centerX" secondItem="BEZ-9K-hBt" secondAttribute="centerX" id="ovd-4g-ekP"/>
+                            <constraint firstItem="FfC-VY-6FB" firstAttribute="centerY" secondItem="BEZ-9K-hBt" secondAttribute="centerY" id="ss0-UC-5I0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Pictures" id="PsN-kK-PMi">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="cWf-l3-AvG">
-                            <color key="tintColor" red="0.0003204873277" green="0.37828512289999999" blue="0.0050459670590000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <connections>
-                                <action selector="showImagePicker:" destination="CxO-u9-3gj" id="gRe-9v-Mz2"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Pictures" id="PsN-kK-PMi"/>
                     <connections>
                         <outlet property="collectionView" destination="qzg-o5-dCz" id="xut-dE-XJ1"/>
+                        <outlet property="indicatorActivity" destination="FfC-VY-6FB" id="AW5-hy-BdA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLP-ji-rK7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -32,7 +32,7 @@ class Lab4ViewController: UIViewController {
         guard let book = book else {
             return
         }
-        bookImageView.image = book.bookImage
+        bookImageView.sd_setImage(with: URL(string: book.image), placeholderImage: book.bookPlaceholderImage)
         titleDescLabel.setup(with: book.title, description: "Title")
         subtitleDescLabel.setup(with: book.subtitle, description: "Subtitle")
         

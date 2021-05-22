@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class BookTableViewCell: UITableViewCell {
     
@@ -21,7 +22,7 @@ class BookTableViewCell: UITableViewCell {
     }
     
     func setUp(book: Book) {
-        bookImageView.image = book.bookImage
+        bookImageView.sd_setImage(with: URL(string: book.image), placeholderImage: book.bookPlaceholderImage)
         titleLabel.text = book.title
         subTitleLabel.text = book.subtitle
         priceLabel.text = book.price
